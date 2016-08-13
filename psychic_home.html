@@ -2,6 +2,9 @@
 <html>
 <head>
 	<title>The Psychic Game</title>
+
+    <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
 <body>
 <h1>The Psychic Game</h1>
@@ -63,13 +66,12 @@
 					document.getElementById("guessLeftCounter").innerHTML = "Guesses Left: " + guessLeft;
 
 				}
-				//Win Output
+				//Win 
 					if (cpuLetter == userInput){
 
 						win++;
 						document.getElementById("winCounter").innerHTML = "Wins: " + win;
 						document.getElementById("results").innerHTML = "<h3> Winner, Winner, Chicken Dinner!!</h3>";
-						//var reset added to end  of win output
 						reset();
 						
 					}
@@ -82,13 +84,12 @@
 						document.getElementById("guessListCounter").innerHTML = "Your Guesses so far: " + guessList +" ";
 						console.log(lose);
 					}
-					//Lose output & Reset
+					//Lose
 						else if (guessLeft == 0) {
 							console.log("lose");
 							lose++;
 							document.getElementById("loseGameCounter").innerHTML = "Losses: " + lose;
 							document.getElementById("results").innerHTML = "<h3> Your psychic powers are seriously lacking.</h3>";
-							//var reset added to lose output
 							reset();  
 							
 
