@@ -1,0 +1,12 @@
+h1 {
+	background-color: pink;
+
+}
+
+body {
+	color: white;
+	background-color: green;
+	background-image:url(../images/magicenergyhand.jpeg);
+	background-repeat: no-repeat;
+	background-position: center;
+}
