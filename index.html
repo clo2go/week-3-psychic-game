@@ -6,7 +6,10 @@
 <body>
 <h1>The Psychic Game</h1>
 
-<h2>Guess What letter I'm thinking of!</h2>
+<h2>Pick a a letter, any letter...</h2>
+	
+	<div id= "results">
+	</div>
 
 	<div id="winCounter">
 		Wins: 0
@@ -35,50 +38,68 @@
 		function randomRange(max) {
 			return Math.floor(Math.random()*max);
 		}
+			//variables
 			var win = 0;
-			var loseGuess = 0;
-			var loseGame = loseGuess >= 9;
+			var lose = 0;
 			var guess = 0;
 			var guessLeft = 9;
 			var guessList = [];
 			var randIndex = randomRange(letters.length);
-			var currentLetter = letters[randIndex].toLowerCase();
+			var cpuLetter = letters[randIndex].toLowerCase();
 
 
 			document.onkeyup = function(event){
 				var userInput = String.fromCharCode(event.keyCode).toLowerCase();
-				console.log(currentLetter);
+				console.log(cpuLetter);
 				console.log(userInput);
-				/*for(var i = 0; i <=9; i++) {*/
-				if (guessLeft > 0){
+		        //var reset function
+				var reset = function() {
+					guess = 0;
+					guessLeft = 9;
+					guessList = [];
+					randIndex = randomRange(letters.length);
+					cpuLetter = letters[randIndex].toLowerCase();
+					document.getElementById("guessListCounter").innerHTML = "Your Guesses so far : ";
+					document.getElementById("guessLeftCounter").innerHTML = "Guesses Left: " + guessLeft;
 
-					if (currentLetter == userInput){
+				}
+				//Win Output
+					if (cpuLetter == userInput){
 
 						win++;
-						document.getElementById("winCounter").innerHTML = "<h3> You Win!!!</h3> Wins: " + win;
-						guessLeft = 0;
+						document.getElementById("winCounter").innerHTML = "Wins: " + win;
+						document.getElementById("results").innerHTML = "<h3> Winner, Winner, Chicken Dinner!!</h3>";
+						//var reset added to end  of win output
+						reset();
+						
 					}
-
-					else if (loseGame < 9) {
+					//Game interaction
+					else if (guessLeft <= 9 && guessLeft >= 1) {
+						document.getElementById("results").innerHTML = " ";
 						guessLeft--;
 						guessList.push(userInput);
 						document.getElementById("guessLeftCounter").innerHTML = "Guesses Left: " + guessLeft;
 						document.getElementById("guessListCounter").innerHTML = "Your Guesses so far: " + guessList +" ";
-						console.log(loseGame);
-						/*console.log(Left);*/
+						console.log(lose);
 					}
-						else if (loseGame > 9) {
-							loseGame++;
-							document.getElementById("loseGameCounter").innerHTML = "Losses: " + loseGame;
+					//Lose output & Reset
+						else if (guessLeft == 0) {
+							console.log("lose");
+							lose++;
+							document.getElementById("loseGameCounter").innerHTML = "Losses: " + lose;
+							document.getElementById("results").innerHTML = "<h3> Your psychic powers are seriously lacking.</h3>";
+							//var reset added to lose output
+							reset();  
+							
+
 						}
 				}
 
-				/*else{
-					return console.log("The Game is over!")
+				
+					/*return console.log("The Game is over!")
 					return console.log("Wins: " + win);
-					return console.log("Losses: " + loseGame);
-				}*/
-			}
+					return console.log("Losses: " + lose);*/
+			
 	</script>
 
 </body>
