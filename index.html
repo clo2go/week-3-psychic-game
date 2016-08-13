@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Psychic Game</title>
+</head>
+<body>
+<h1>The Psychic Game</h1>
+
+<h2>Guess What letter I'm thinking of!</h2>
+
+	<div id="winCounter">
+		Wins: 0
+	</div>
+	
+	<br>
+	
+	<div id="loseGameCounter">
+		Losses: 0
+	</div>
+	
+	<br>
+	
+	<div id="guessLeftCounter">
+		Guesses Left: 9
+	</div>
+	
+	<br>
+	
+	<div id="guessListCounter">
+		Your Guesses so far:
+	</div>
+
+	<script type="text/javascript">
+		var letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+		function randomRange(max) {
+			return Math.floor(Math.random()*max);
+		}
+			var win = 0;
+			var loseGuess = 0;
+			var loseGame = loseGuess >= 9;
+			var guess = 0;
+			var guessLeft = 9;
+			var guessList = [];
+			var randIndex = randomRange(letters.length);
+			var currentLetter = letters[randIndex].toLowerCase();
+
+
+			document.onkeyup = function(event){
+				var userInput = String.fromCharCode(event.keyCode).toLowerCase();
+				console.log(currentLetter);
+				console.log(userInput);
+				/*for(var i = 0; i <=9; i++) {*/
+				if (guessLeft > 0){
+
+					if (currentLetter == userInput){
+
+						win++;
+						document.getElementById("winCounter").innerHTML = "<h3> You Win!!!</h3> Wins: " + win;
+						guessLeft = 0;
+					}
+
+					else if (loseGame < 9) {
+						guessLeft--;
+						guessList.push(userInput);
+						document.getElementById("guessLeftCounter").innerHTML = "Guesses Left: " + guessLeft;
+						document.getElementById("guessListCounter").innerHTML = "Your Guesses so far: " + guessList +" ";
+						console.log(loseGame);
+						/*console.log(Left);*/
+					}
+						else if (loseGame > 9) {
+							loseGame++;
+							document.getElementById("loseGameCounter").innerHTML = "Losses: " + loseGame;
+						}
+				}
+
+				/*else{
+					return console.log("The Game is over!")
+					return console.log("Wins: " + win);
+					return console.log("Losses: " + loseGame);
+				}*/
+			}
+	</script>
+
+</body>
+</html>
