@@ -1,23 +1,12 @@
-/*.container {
-    padding: 80px 120px;
-    background-color: grey;
-    margin: 5px 5px 5px 5px;
+.card-wide.mdl-card {
+  width: 740px;
+  margin: 5%;
 }
-
-h1 {
-	text-shadow: 2px 2px #ff0000;
+.card-wide > .mdl-card__title {
+  color: #fff;         
+  height: 170px;
+  background: indigo;
 }
-
-h2 {
-    font
-    color: red;
-    text-shadow: 2px 2px #ff0000;
-    
+.card-wide > .mdl-card__menu {
+  color: #fff;
 }
-
-body {
-    font: 400 15px/1.8 Lato, sans-serif;
-    color: #777;
-}
-
-
