@@ -1,1 +1,1 @@
-<?php include_once("psychic_home.html"); ?>
+<?php include_once("index.html"); ?>
