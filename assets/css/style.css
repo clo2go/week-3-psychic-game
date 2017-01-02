@@ -1,6 +1,22 @@
+body,
+.view {
+    height: 100%;
+}
+
+.view {
+    background: url("assets/images/bg-blackwhite-mtns.jpg") no-repeat center center fixed;
+    background-color: #E1BEE7;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 .card-wide.mdl-card {
   width: 740px;
-  margin: 5%;
+  margin: 2%;
+  padding: 1%;
+
 }
 .card-wide > .mdl-card__title {
   color: #fff;         
