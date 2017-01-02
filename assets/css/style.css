@@ -1,5 +1,7 @@
-body,
-.view {
+body{
+    background-color: #E1BEE7;
+}
+/*.view {
     height: 100%;
 }
 
@@ -10,12 +12,13 @@ body,
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-}
+}*/
 
 .card-wide.mdl-card {
   width: 740px;
   margin: 2%;
   padding: 1%;
+
 
 }
 .card-wide > .mdl-card__title {
